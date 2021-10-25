@@ -178,33 +178,124 @@
             }
         }
     }*/
+    /*public class Program
+    { public static void Main(string[] args)
+        {
+            /*(4.1.3.11) Un programa que pida al usuario 4 números enteros y calcule (y
+            muestre) cuál es el mayor de ellos. Nota: para calcular el mayor valor de un array,
+            hay que comparar cada uno de los valores que tiene almacenados el array con el
+            que hasta ese momento es el máximo provisional. El valor inicial de este máximo
+            provisional no debería ser cero (porque el resultado sería incorrecto si todos los
+            números son negativos), sino el primer elemento del array.#1#
+            
+            int []arrayNumeros=new int[4];
+            int mayor;
+
+            for (int i = 0; i < arrayNumeros.Length; i++)
+            {
+                Console.Write("introduce el {0} numero: ", i+1);
+                arrayNumeros[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            mayor = arrayNumeros[0];
+
+            for (int i = 0; i < arrayNumeros.Length; i++)
+            {
+                if (arrayNumeros[i]>mayor)
+                {
+                    mayor = arrayNumeros[i];
+                }
+            }
+            Console.WriteLine("the biggest number is: {0}",mayor);
+        }
+    }*/
+    
+    /*
     public class Program
     { public static void Main(string[] args)
         {
-            /*(2.7.2) Crea un programa que pregunte al usuario su edad y su año de nacimiento.
-            Si la edad que introduce no es un número válido, mostrará un mensaje de aviso,
-            pero aun así le preguntará su año de nacimiento.*/
-            int age, year;
-            try
+            /*(4.2.3) Un programa que pregunte al usuario el tamaño que tendrán dos bloques
+            de números enteros (por ejemplo, uno de 10 elementos y otro de 12). Luego            
+            pedirá los datos para ambos bloques de datos. Finalmente deberá mostrar el
+            mayor dato que se ha introducido en cada uno de ellos. #1#
+            
+            int rows, columns,mayorRows, mayorColumns;
+            
+            Console.Write("dame el tamaño de fila :");
+            rows=Convert.ToInt32(Console.ReadLine());
+            Console.Write("dame el tamaño de columna :");
+            columns=Convert.ToInt32(Console.ReadLine());
+            
+            int [,]notas1=new int[rows,columns];
+            
+            for (int i = 0; i < notas1.GetLength(0); i++)
             {
-                Console.Write("introduce tu edad : ");
-                age = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine(" Has introducido un texto en la edad");
-            }
-            finally
-            {
-                try
+                for (int j = 0; j < notas1.GetLength(1); j++)
                 {
-                    Console.Write("introduce tu año de nacimiento : ");
-                    year = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("dame la posición : {0} , {1} ",i,j);
+                    notas1[i, j] = Convert.ToInt32(Console.ReadLine());
                 }
-                catch (FormatException)
+                Console.WriteLine();
+            }
+
+            mayorRows = notas1[0, 0];
+            mayorColumns = notas1[0, 0];
+            for (int i = 0; i < notas1.GetLength(0); i++)
+            {
+                if (notas1[i,0]>mayorRows)
                 {
-                    Console.WriteLine(" Has introducido un texto en el año");
+                    mayorRows = notas1[i, 0];
                 }
+                
+                for (int j = 0; j < notas1.GetLength(1); j++)
+                {
+                    if (notas1[i,j]>mayorRows)
+                    {
+                        mayorColumns = notas1[i, j];
+                    }
+                    
+                }
+                Console.WriteLine("mayor de fila" + mayorRows);
+                Console.WriteLine();
+                Console.WriteLine("mayor de columna" + mayorColumns);
             }
         }
     }
+    */
+    
+    public class Program
+    { public static void Main(string[] args)
+        {
+            /*(4.4.3.3) Un programa que pida al usuario una frase, después una letra y
+            finalmente diga si aparece esa letra como parte de esa frase o no. */
+            
+            int rows, columns,mayorRows, mayorColumns;
+            string frase;
+            char letra;
+            bool encontrado = false;
+            
+            Console.WriteLine("dame una frase :");
+            frase=Console.ReadLine();
+            Console.Write("dame una letra :");
+            letra=Convert.ToChar(Console.ReadLine());
+
+            for (int i = 0; i < frase.Length; i++)
+            {
+                if (frase[i]==letra)
+                {
+                    encontrado = true;
+                }   
+            }
+
+            if (encontrado)
+            {
+                Console.WriteLine("encontrada la \"{0}\" en la frase.", letra);
+            }
+            else
+            {
+                Console.WriteLine("no encontrada la \"{0}\" en la frase.", letra);
+            }
+              
+        }
+    }
+
