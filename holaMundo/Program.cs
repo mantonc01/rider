@@ -12,6 +12,7 @@
     }
     */
     using System;
+    using System.Text;
 
     /*public class Program
     {
@@ -209,7 +210,6 @@
             Console.WriteLine("the biggest number is: {0}",mayor);
         }
     }*/
-    
     /*
     public class Program
     { public static void Main(string[] args)
@@ -262,12 +262,12 @@
         }
     }
     */
-    
+    /*
     public class Program
     { public static void Main(string[] args)
         {
             /*(4.4.3.3) Un programa que pida al usuario una frase, después una letra y
-            finalmente diga si aparece esa letra como parte de esa frase o no. */
+            finalmente diga si aparece esa letra como parte de esa frase o no. #1#
             
             int rows, columns,mayorRows, mayorColumns;
             string frase;
@@ -298,4 +298,115 @@
               
         }
     }
+    */
+    /*public class Program
+    { public static void Main(string[] args)
+        {
+            /*(4.4.9.3) Crea un juego del ahorcado, en el que un primer usuario introduzca la
+            palabra a adivinar, se muestre ésta oculta con guiones (-----) y el programa acepte
+            las letras que introduzca el segundo usuario, cambiando los guiones por letras
+            correctas cada vez que acierte (por ejemplo, a---a-t-). La partida terminará cuando
+            se acierte la palabra por completo o el usuario agote sus 8 intentos. #1#
+            
+            int intentos=8,aciertos=0;
+            string fraseOculta;
+            StringBuilder Oculta;
+            char letra;
+            Console.WriteLine("JUGADOR 1");
+            Console.WriteLine("dame una palabra :");
+            fraseOculta=Console.ReadLine();
+            Console.Write("PALABRA SECRETA : ");
+            Oculta = new StringBuilder(fraseOculta);
+            for (int i = 0; i < fraseOculta.Length; i++)
+            {
+                Console.Write("-");
+                Oculta[i]='-';
+            }
+            Console.WriteLine();
+            Console.WriteLine("JUGADOR 2");
+            do
+            {
+                Console.WriteLine("player 2: please, enter a letter : ");
+                letra=Convert.ToChar(Console.ReadLine());
+                for (int i = 0; i < fraseOculta.Length; i++)
+                {
+                    if (fraseOculta[i]==letra)
+                    {
+                        Oculta[i] = letra;
+                        aciertos++;
+                    } 
+                }
+                Console.WriteLine(Oculta.ToString());
+                intentos--;
+                Console.WriteLine("you have {0} attempts left",intentos); 
+            } while (intentos>0 && aciertos<fraseOculta.Length);
+
+            if (aciertos==fraseOculta.Length)
+            {
+                Console.WriteLine("---CONGRATULATIONS. YOU ARE WIN---");
+            }
+            else
+            {
+                Console.WriteLine("---OHHH. YOU ARE LOSE---");
+            }
+            Console.WriteLine("---END---");
+        }
+ }
+ */
+    public class Program
+    { public static void Main(string[] args)
+        {
+            /*(4.4.9.3) Crea un juego del ahorcado, en el que un primer usuario introduzca la
+            palabra a adivinar, se muestre ésta oculta con guiones (-----) y el programa acepte
+            las letras que introduzca el segundo usuario, cambiando los guiones por letras
+            correctas cada vez que acierte (por ejemplo, a---a-t-). La partida terminará cuando
+            se acierte la palabra por completo o el usuario agote sus 8 intentos. */
+            
+            int intentos=8,aciertos=0;
+            string fraseOculta;
+            StringBuilder oculta;
+            char letra;
+            Console.WriteLine("JUGADOR 1");
+            Console.WriteLine("dame una palabra :");
+            fraseOculta=Console.ReadLine();
+            Console.Write("PALABRA SECRETA : ");
+            oculta = new StringBuilder(fraseOculta);
+            for (int i = 0; i < fraseOculta.Length; i++)
+            {
+                Console.Write("-");
+                oculta[i]='-';
+            }
+            Console.WriteLine();
+            Console.WriteLine("JUGADOR 2");
+            do
+            {
+                Console.WriteLine("player 2: please, enter a letter : ");
+                letra=Convert.ToChar(Console.ReadLine());
+                for (int i = 0; i < fraseOculta.Length; i++)
+                {
+                    if (fraseOculta[i]==letra)
+                    {
+                        oculta[i] = letra;
+                        aciertos++;
+                    } 
+                }
+                Console.WriteLine(oculta.ToString());
+                intentos--;
+                Console.WriteLine("you have {0} attempts left",intentos); 
+            } while (intentos>0 && aciertos<fraseOculta.Length);
+
+            if (aciertos==fraseOculta.Length)
+            {
+                Console.WriteLine("---CONGRATULATIONS. YOU ARE WIN---");
+            }
+            else
+            {
+                Console.WriteLine("---OHHH. YOU ARE LOSE---");
+            }
+            Console.WriteLine("---END---");
+        }
+ }
+
+
+
 
